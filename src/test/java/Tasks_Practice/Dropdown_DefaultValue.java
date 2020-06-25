@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Dropdown_DefaultValue {
@@ -17,7 +19,7 @@ public class Dropdown_DefaultValue {
     @BeforeClass
     public void setUp(){
         driver= WebDriverFactory.getDriver("chrome");
-        driver.get("http://practice.cybertekschool.com/dropdown");git
+        driver.get("http://practice.cybertekschool.com/dropdown");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
@@ -31,6 +33,9 @@ public class Dropdown_DefaultValue {
         String expectedMonth=localMonth.format(monthFormator);
 
         Assert.assertEquals(actualMonth,expectedMonth);
+        //1.Do both verifications in the same test
+        // 2.Verify list of months are correct as expected
+        List<String>  expectedMonth=new ArrayList<>();
 
 
 
